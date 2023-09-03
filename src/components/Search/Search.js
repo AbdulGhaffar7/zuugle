@@ -223,6 +223,13 @@ export function Search({
     }
   };
 
+  useEffect(() => {
+    if (pageKey === "detail") {
+      let city = searchParams.get("city");
+      navigate(`/?${!!city ? "city=" + city : ""}`);
+    }
+  }, [city]);
+
   const handleResetFilter = () => {
     hideModal();
     handleFilterChange(null);
